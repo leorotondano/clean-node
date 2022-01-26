@@ -3,10 +3,13 @@ const bodyParser = require('body-parser')
 const app = express()
 const routes = require('./routes')
 const config = require('../../config')
+const swagger = require('./swagger')
 
 // bodyparser
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+swagger(app);
 
 app.use(routes)
 
